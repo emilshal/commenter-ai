@@ -19,18 +19,14 @@ export function LegalPage({
   updatedAt,
   intro,
   sections,
-  showToc = false,
   variant = "plain",
 }: Readonly<{
   title: string;
   updatedAt?: string;
   intro?: React.ReactNode;
   sections: LegalSection[];
-  showToc?: boolean;
   variant?: "plain" | "card";
 }>) {
-  const toc = sections.map((s) => ({ title: s.title, id: slugify(s.title) }));
-
   return (
     <Container className="py-14 sm:py-20">
       <div className="mx-auto max-w-6xl">
@@ -43,12 +39,7 @@ export function LegalPage({
           ) : null}
         </div>
 
-        <div
-          className={cn(
-            "mt-10 grid gap-10",
-            showToc ? "lg:grid-cols-[1fr_260px] lg:gap-12" : "",
-          )}
-        >
+        <div className="mt-10 grid gap-10">
           <article
             className={cn(
               "mx-auto w-full max-w-3xl",
@@ -77,25 +68,6 @@ export function LegalPage({
               })}
             </div>
           </article>
-
-          <aside className={cn("hidden lg:block", showToc ? "block" : "hidden")}>
-            <div className="sticky top-24 rounded-2xl bg-black/20 p-5 ring-1 ring-inset ring-white/10">
-              <div className="text-xs font-semibold uppercase tracking-widest text-white/55">
-                On this page
-              </div>
-              <nav className="mt-4 space-y-2 text-sm">
-                {toc.map((t, idx) => (
-                  <a
-                    key={t.id}
-                    className="block rounded-xl px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white"
-                    href={`#${t.id}`}
-                  >
-                    {idx + 1}. {t.title}
-                  </a>
-                ))}
-              </nav>
-            </div>
-          </aside>
         </div>
       </div>
     </Container>
