@@ -19,7 +19,7 @@ export function Hero() {
               once Figma arrives.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="/register">Get started</Button>
+              <Button href="/login">Get started</Button>
               <Button href="/pricing" variant="secondary">
                 View pricing
               </Button>

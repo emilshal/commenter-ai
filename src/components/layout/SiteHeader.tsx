@@ -1,104 +1,74 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { usePathname } from "next/navigation";
+import { useMemo } from "react";
+import { FigmaBrandLogo } from "@/components/layout/FigmaBrandLogo";
 import { cn } from "@/lib/cn";
 
 type NavItem = { label: string; href: string };
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const nav = useMemo<NavItem[]>(
     () => [
+      { label: "Home", href: "/" },
       { label: "Features", href: "/features" },
+      { label: "Guide", href: "/partner" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Blog", href: "/blog" },
-      { label: "About", href: "/about" },
-      { label: "Privacy", href: "/privacy" },
+      { label: "Login", href: "/login" },
     ],
     [],
   );
 
-  const [open, setOpen] = useState(false);
+  const isActive = (href: string) => {
+    if (href.includes("#")) return false;
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-semibold tracking-tight"
-          >
-            <span className="grid h-8 w-8 place-items-center rounded-xl bg-white/6 ring-1 ring-white/10">
-              <span className="h-3 w-3 rounded-sm bg-indigo-400" />
-            </span>
-            <span>SaaS</span>
-          </Link>
-        </div>
+    <header className="relative z-40 w-full px-[24px] pt-[12px]" data-node-id="104:501">
+      <div className="relative mx-auto h-[75px] w-full max-w-[1408px] px-[28px] py-[17px] lg:px-[40px]">
+        <div
+          className="pointer-events-none absolute inset-0 rounded-[20px] backdrop-blur-[10px]"
+          style={{
+            backgroundImage:
+              "linear-gradient(170.9340406028747deg, rgba(255, 255, 255, 0.104) 0%, rgba(255, 255, 255, 0.026) 100%)",
+          }}
+          data-node-id="104:503"
+        />
 
-        <nav className="hidden items-center gap-8 text-sm text-white/80 md:flex">
-          {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-white">
-              {item.label}
+        <div className="relative flex h-full items-center justify-between gap-[24px]">
+          <Link href="/" className="flex items-center gap-[8px]">
+            <FigmaBrandLogo />
+          </Link>
+
+          <div className="flex items-center gap-[20px] lg:gap-[28px]">
+            <nav className="flex h-[20px] items-center gap-[20px] font-[var(--font-montserrat)] text-[18px] font-medium leading-[20px] tracking-[-0.1504px] text-[#d1d5dc] lg:gap-[28px]">
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "rounded-[8px] px-[6px] py-[2px]",
+                    isActive(item.href)
+                      ? "text-[#51a2ff]"
+                      : "text-[#d1d5dc]",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <Link
+              href="/login"
+              className="inline-flex h-[36px] shrink-0 items-center justify-center rounded-[4px] bg-[#155dfc] px-[24px] py-[8px] font-[var(--font-montserrat)] text-[14px] font-extrabold leading-[20px] tracking-[-0.1504px] text-white transition-[transform,box-shadow,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#2b7fff] hover:shadow-[0_10px_24px_rgba(43,127,255,0.35)] active:translate-y-0 active:scale-100"
+            >
+              Get free trial
             </Link>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-3 md:flex">
-          <Link href="/login" className="text-sm text-white/80 hover:text-white">
-            Sign in
-          </Link>
-          <Button href="/register" size="sm">
-            Get started
-          </Button>
+          </div>
         </div>
-
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white ring-1 ring-white/10 md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
-          <span className="sr-only">Toggle menu</span>
-          <div className="flex flex-col gap-1.5">
-            <span className={cn("h-0.5 w-5 bg-white transition", open && "translate-y-2 rotate-45")} />
-            <span className={cn("h-0.5 w-5 bg-white transition", open && "opacity-0")} />
-            <span className={cn("h-0.5 w-5 bg-white transition", open && "-translate-y-2 -rotate-45")} />
-          </div>
-        </button>
-      </Container>
-
-      <div
-        id="mobile-nav"
-        className={cn(
-          "border-t border-white/10 bg-black/60 backdrop-blur md:hidden",
-          open ? "block" : "hidden",
-        )}
-      >
-        <Container className="py-4">
-          <div className="flex flex-col gap-2">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="mt-2 flex items-center gap-3">
-              <Button href="/login" variant="secondary" size="sm" className="flex-1">
-                Sign in
-              </Button>
-              <Button href="/register" size="sm" className="flex-1">
-                Get started
-              </Button>
-            </div>
-          </div>
-        </Container>
       </div>
     </header>
   );

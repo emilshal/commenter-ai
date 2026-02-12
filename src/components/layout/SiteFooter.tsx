@@ -1,113 +1,104 @@
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
+import Image from "next/image";
+import { FigmaBrandLogo } from "@/components/layout/FigmaBrandLogo";
 
-const columns: Array<{
-  title: string;
-  links: Array<{ label: string; href: string }>;
-}> = [
+const columns = [
   {
     title: "Learn",
-    links: [{ label: "Blog", href: "#" }],
+    links: [
+      { label: "Guide", href: "/partner" },
+    ],
   },
   {
     title: "Commenter AI",
     links: [
-      { label: "Features", href: "#" },
-      { label: "Guide", href: "#" },
-      { label: "How It Works", href: "#" },
+      { label: "Features", href: "/features" },
+      { label: "Guide", href: "/partner" },
+      { label: "How It Works", href: "/features" },
     ],
   },
   {
     title: "Pricing",
     links: [
-      { label: "Pricing", href: "#" },
-      { label: "Billing/Trust", href: "#" },
+      { label: "Pricing", href: "/pricing" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Contact Us", href: "#" },
-      { label: "Become a Partner", href: "#" },
+      { label: "Become a Partner", href: "/partner" },
     ],
   },
-];
+] as const;
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#0b0b0b]">
-      <Container className="py-16">
-        <div className="grid gap-14 md:grid-cols-[1.4fr_2fr]">
-          <div>
-            <img
-              src="/commenterai-logo.png"
-              alt="Commenter.ai"
-              className="h-12 w-auto"
-            />
-            <p className="mt-6 max-w-sm text-sm leading-6 text-white/60">
-              Commenter AI is not affiliated, associated, authorized, endorsed
-              by, or in any way officially connected with the LinkedIn™
-              Corporation, registered in the U.S. and other countries. LinkedIn™
-              is a trademark of the LinkedIn™ Corporation.
-            </p>
-          </div>
+    <footer className="w-full border-t border-[#1e2939]">
+      <div className="mx-auto w-full max-w-[1408px] px-[32px] pt-[48px]">
+        <div className="flex flex-col gap-[28px] px-[24px] pb-[36px]">
+          <div className="grid grid-cols-1 gap-[44px] lg:grid-cols-[389.33px_1fr]">
+            <div>
+              <div className="flex items-center gap-[8px]">
+                <FigmaBrandLogo />
+              </div>
+              <p className="mt-[48px] w-[392px] font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af]">
+                Commenter AI is not affiliated, associated, authorized,
+                <br />
+                endorsed by, or in any way officially connected with the
+                <br />
+                LinkedInTM Corporation, registered in the U.S. and other
+                <br />
+                countries. LinkedInTM is a trademark of the
+                <br />
+                LinkedInTM Corporation.
+              </p>
+            </div>
 
-          <div className="space-y-10">
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-              {columns.map((col) => (
-                <div key={col.title}>
-                  <div className="text-sm font-semibold text-white/85">
-                    {col.title}
+            <div className="grid grid-cols-2 gap-x-[38px] gap-y-[24px] lg:grid-cols-4">
+              {columns.map((c) => (
+                <div key={c.title}>
+                  <div className="font-[var(--font-inter)] text-[14px] font-semibold leading-[20px] text-white">
+                    {c.title}
                   </div>
-                  <ul className="mt-4 space-y-2 text-sm text-white/60">
-                    {col.links.map((l, index) => (
-                      <li key={`${l.label}-${index}`}>
-                        <Link href={l.href} className="hover:text-white">
-                          {l.label}
-                        </Link>
-                      </li>
+                  <div className="mt-[16px] flex flex-col gap-[12px]">
+                    {c.links.map((l) => (
+                      <Link
+                        key={`${c.title}-${l.href}-${l.label}`}
+                        href={l.href}
+                        className="font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af] hover:text-white"
+                      >
+                        {l.label}
+                      </Link>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               ))}
             </div>
+          </div>
 
-            <div className="flex flex-wrap items-center gap-4 sm:flex-nowrap">
-              <img
-                src="/footer-featured-ai.png"
-                alt="Featured on There's an AI for That"
-                className="h-9 w-auto opacity-70"
-              />
-              <img
-                src="/commenterai-logo.png"
-                alt="Featured on SoftGist"
-                className="h-12 w-auto"
-              />
-              <img
-                src="/footer-tekpon.png"
-                alt="Tekpon Verified"
-                className="h-12 w-auto"
-              />
-            </div>
+          <div className="flex flex-wrap items-center gap-[26px] lg:justify-end lg:pr-[12px]">
+            <Image src="/footer-featured-ai.png" alt="Featured on There's an AI for that" width={194} height={52} />
+            <Image src="/footer-ai-logo.png" alt="Featured on SoftGist" width={214} height={54} />
+            <Image src="/footer-tekpon.png" alt="Tekpon Verified" width={58} height={54} />
           </div>
         </div>
-      </Container>
+      </div>
 
-      <div className="mt-12 border-t border-white/10 bg-[#121826]">
-        <Container className="py-4">
-          <div className="flex flex-col gap-3 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2025 Commenter AI. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <Link href="/privacy" className="hover:text-white">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-white">
-                Term of Services
-              </Link>
-            </div>
+      <div className="w-full bg-[#171a23]">
+        <div className="mx-auto flex w-full max-w-[1408px] flex-wrap items-center gap-[44px] px-[68px] py-[16px] lg:gap-[40px]">
+          <div className="font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af]">
+            © 2025 Commenter AI. All rights reserved.
           </div>
-        </Container>
+          <Link
+            href="/privacy"
+            className="ml-auto font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af] hover:text-white"
+          >
+            Privacy Policy
+          </Link>
+          <Link href="/pricing" className="font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af] hover:text-white">
+            Pricing
+          </Link>
+        </div>
       </div>
     </footer>
   );

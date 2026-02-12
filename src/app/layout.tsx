@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +12,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "SaaS Marketing",
-  description: "Premium SaaS marketing pages built in React.",
+  title: "Commenter AI",
+  description: "Commenter AI marketing site.",
+  icons: {
+    icon: "/group-10.svg",
+    shortcut: "/group-10.svg",
+    apple: "/group-10.svg",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-dvh antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${inter.variable} min-h-dvh antialiased`}
       >
         {children}
       </body>

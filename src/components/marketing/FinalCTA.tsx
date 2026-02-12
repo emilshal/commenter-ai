@@ -19,7 +19,7 @@ export function FinalCTA() {
               </p>
             </div>
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <Button href="/register">Get started</Button>
+              <Button href="/login">Get started</Button>
               <Button href="/features" variant="secondary">
                 Explore features
               </Button>

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
       title: "Introduction",
       body: (
         <>
-          <p>Welcome to Commenter.ai</p>
+          <p>Welcome to Commenter AI</p>
           <p className="mt-3">
             MConsultants LTD (&quot;us&quot;, &quot;we&quot;, or
             &quot;our&quot;) operates https://commenter.ai (hereinafter referred
