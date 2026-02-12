@@ -311,8 +311,8 @@ export default function Home() {
                   {section.title}
                 </h3>
 
-                <div className="overflow-hidden rounded-[10px] border border-[#1e2939] bg-[#101828]">
-                  <div className="grid grid-cols-[1.2fr_1fr_1fr_1fr] border-b border-[#1e2939] bg-[rgba(30,41,57,0.5)] px-4 py-4 text-[14px] text-[#99a1af]">
+                <div className="overflow-hidden rounded-[10px] border border-[#1e2939] bg-[#121418]">
+                  <div className="grid grid-cols-[1.2fr_1fr_1fr_1fr] border-b border-[#1e2939] bg-[rgba(255,255,255,0.04)] px-4 py-4 text-[14px] text-[#99a1af]">
                     <div>Feature</div>
                     <div className="text-center">Starter</div>
                     <div className="text-center">Advanced</div>

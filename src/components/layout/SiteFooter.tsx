@@ -34,14 +34,14 @@ const columns = [
 export function SiteFooter() {
   return (
     <footer className="w-full border-t border-[#1e2939]">
-      <div className="mx-auto w-full max-w-[1408px] px-[32px] pt-[48px]">
-        <div className="flex flex-col gap-[28px] px-[24px] pb-[36px]">
+      <div className="mx-auto w-full max-w-[1408px] px-[12px] pt-[48px] sm:px-[20px] lg:px-[32px]">
+        <div className="flex flex-col gap-[28px] px-[8px] pb-[36px] sm:px-[24px]">
           <div className="grid grid-cols-1 gap-[44px] lg:grid-cols-[389.33px_1fr]">
             <div>
               <div className="flex items-center gap-[8px]">
                 <FigmaBrandLogo />
               </div>
-              <p className="mt-[48px] w-[392px] font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af]">
+              <p className="mt-[24px] w-full max-w-[392px] font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af] sm:mt-[48px]">
                 Commenter AI is not affiliated, associated, authorized,
                 <br />
                 endorsed by, or in any way officially connected with the
@@ -76,7 +76,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-[26px] lg:justify-end lg:pr-[12px]">
+          <div className="flex flex-wrap items-center gap-[16px] sm:gap-[26px] lg:justify-end lg:pr-[12px]">
             <Image src="/footer-featured-ai.png" alt="Featured on There's an AI for that" width={194} height={52} />
             <Image src="/footer-ai-logo.png" alt="Featured on SoftGist" width={214} height={54} />
             <Image src="/footer-tekpon.png" alt="Tekpon Verified" width={58} height={54} />
@@ -85,7 +85,7 @@ export function SiteFooter() {
       </div>
 
       <div className="w-full bg-[#171a23]">
-        <div className="mx-auto flex w-full max-w-[1408px] flex-wrap items-center gap-[44px] px-[68px] py-[16px] lg:gap-[40px]">
+        <div className="mx-auto flex w-full max-w-[1408px] flex-wrap items-center gap-[20px] px-[14px] py-[16px] sm:px-[30px] lg:gap-[40px] lg:px-[68px]">
           <div className="font-[var(--font-inter)] text-[14px] font-normal leading-[20px] text-[#99a1af]">
             © 2025 Commenter AI. All rights reserved.
           </div>

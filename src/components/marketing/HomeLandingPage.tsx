@@ -757,11 +757,12 @@ export default function HomeLandingPage() {
                 {plan.billingNote}
               </div>
 
-              <div className="mt-[18px] h-[48px] w-full rounded-[4px] bg-[#155dfc]">
-                <div className="flex h-full w-full items-center justify-center text-center font-[var(--font-montserrat)] text-[16px] font-medium leading-[24px] text-white">
-                  Start 7 day free trial
-                </div>
-              </div>
+              <button
+                type="button"
+                className="mt-[18px] inline-flex h-[48px] min-h-[48px] w-full items-center justify-center rounded-[4px] bg-[#155dfc] text-center font-[var(--font-montserrat)] text-[16px] font-medium leading-[24px] text-white transition-[transform,box-shadow,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#2b7fff] hover:shadow-[0_10px_24px_rgba(43,127,255,0.35)] active:translate-y-0 active:scale-100"
+              >
+                Start 7 day free trial
+              </button>
 
               <div className="mt-[24px] flex flex-col gap-[12px]">
                 {plan.features.map((feature) => (
