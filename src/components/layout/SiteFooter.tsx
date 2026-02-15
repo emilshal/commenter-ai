@@ -36,6 +36,14 @@ const footerAssets = {
   image1: "https://www.figma.com/api/mcp/asset/b149e577-880b-490c-84ba-e2ef7bb95ab1",
   featured2: "https://www.figma.com/api/mcp/asset/11f78b91-ee96-4c28-ae81-5781d1c22a97",
   download2: "https://www.figma.com/api/mcp/asset/84b7a239-ccdf-4661-a5cf-20b3a53a190f",
+  tekponHex: "https://www.figma.com/api/mcp/asset/aef7df8d-b4e4-4e3f-9162-cb84f75031d2",
+  tekponBottom: "https://www.figma.com/api/mcp/asset/dc4e3364-2738-4571-b99e-8b14b18ef792",
+  tekponBottomBlend: "https://www.figma.com/api/mcp/asset/4a064d37-cfcf-4ffc-b2c2-da6af50c2592",
+  tekponSideLeft: "https://www.figma.com/api/mcp/asset/a9ccddf9-6671-4bea-aa39-051c1c2258fb",
+  tekponSideRight: "https://www.figma.com/api/mcp/asset/708dddd8-1bb9-49f0-837e-21000cb6337c",
+  tekponWordmark: "https://www.figma.com/api/mcp/asset/3b3cced0-13cc-400f-9662-3d242913fe6d",
+  tekponRect: "https://www.figma.com/api/mcp/asset/e4d9b038-df38-42cf-b00e-394de2f86296",
+  tekponTopIcon: "https://www.figma.com/api/mcp/asset/c1756d9b-70f0-4b48-a9af-713443523e37",
 } as const;
 
 export function SiteFooter() {
@@ -81,27 +89,15 @@ export function SiteFooter() {
               <div className="flex w-full flex-wrap items-center gap-[16px] sm:gap-[20px] lg:gap-[26px]">
                 <img src={footerAssets.featured2} alt="Featured on SoftGist" className="h-auto w-[210px] sm:w-[240px] lg:w-[274px]" />
                 <img src={footerAssets.download2} alt="Featured on There's an AI for that" className="h-auto w-[185px] sm:w-[220px] lg:w-[249px]" />
-                <div className="relative h-[74.51px] w-[71.82px] shrink-0" aria-label="Tekpon Verified badge">
-                  <div
-                    className="absolute left-[3.13px] top-0 h-[74.51px] w-[65.57px]"
-                    style={{ clipPath: "polygon(50% 0%, 100% 14%, 100% 73%, 50% 100%, 0% 73%, 0% 14%)", background: "linear-gradient(214deg, #fff 0%, #b3b3b3 100%)" }}
-                  />
-                  <div
-                    className="absolute bottom-0 left-0 h-[30.98px] w-[71.82px]"
-                    style={{ clipPath: "polygon(4% 0%, 96% 0%, 100% 34%, 50% 100%, 0% 34%)", background: "linear-gradient(232deg, #00bda5 0%, #00baa5 46%, #00b3a7 67%, #00a6aa 84%, #0094af 98%, #0091b0 100%)" }}
-                  />
-                  <div
-                    className="absolute bottom-[9.92px] left-0 h-[21.06px] w-[71.82px] mix-blend-screen"
-                    style={{ clipPath: "polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%)", background: "linear-gradient(90deg, #040805 0%, #00bda5 50%, #000 100%)" }}
-                  />
-                  <div className="absolute left-[17.81px] top-[33.95px] h-[10.61px] w-[36.21px] bg-white/75" />
-                  <div className="absolute left-[26.2px] top-[31.1px] text-[7px] font-semibold leading-[10px] text-[#221f20]">
-                    tekpon
-                  </div>
-                  <div className="absolute left-[23.2px] top-[40.8px] text-[7px] font-semibold leading-[10px] text-[#221f20]">
-                    Verified
-                  </div>
-                  <div className="absolute left-[32.56px] top-[6.92px] h-[5.86px] w-[6.71px] bg-[#00bda5]" />
+                <div className="relative h-[74.511px] w-[71.819px] shrink-0" aria-label="Tekpon Verified badge">
+                  <img src={footerAssets.tekponHex} alt="" className="absolute left-[3.13px] top-0 h-[74.511px] w-[65.565px]" />
+                  <img src={footerAssets.tekponBottom} alt="" className="absolute left-0 top-[39.357px] h-[30.982px] w-[71.819px]" />
+                  <img src={footerAssets.tekponBottomBlend} alt="" className="absolute left-0 top-[39.357px] h-[21.063px] w-[71.819px] mix-blend-screen" />
+                  <img src={footerAssets.tekponSideLeft} alt="" className="absolute left-0 top-[35.41px] h-[5.682px] w-[3.126px]" />
+                  <img src={footerAssets.tekponSideRight} alt="" className="absolute left-[68.48px] top-[35.41px] h-[5.682px] w-[3.126px]" />
+                  <img src={footerAssets.tekponRect} alt="" className="absolute left-[17.81px] top-[33.95px] h-[10.606px] w-[36.211px]" />
+                  <img src={footerAssets.tekponWordmark} alt="" className="absolute left-[19.31px] top-[23.34px] h-[10.269px] w-[33.176px]" />
+                  <img src={footerAssets.tekponTopIcon} alt="" className="absolute left-[32.56px] top-[6.92px] h-[5.863px] w-[6.709px]" />
                 </div>
               </div>
             </div>
