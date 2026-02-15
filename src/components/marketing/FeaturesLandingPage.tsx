@@ -177,7 +177,7 @@ function InboxCard({ card }: Readonly<{ card: (typeof inboxCards)[number] }>) {
 
 export default function FeaturesLandingPage() {
   return (
-    <main className="flex w-full flex-col items-center gap-[24px] font-[var(--font-inter)]">
+    <main className="desktop-canvas-scale flex w-full flex-col items-center gap-[24px] font-[var(--font-inter)]">
       <section
         className="relative inline-flex w-full flex-col items-center justify-start gap-[60px] px-[24px] py-[64px]"
         style={{

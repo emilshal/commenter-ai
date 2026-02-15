@@ -46,3 +46,74 @@ body::before {
 ::selection {
   background: rgba(99, 102, 241, 0.35);
 }
+
+/* Scale fixed-width, Figma-precise sections down on smaller windows. */
+.desktop-canvas-scale {
+  zoom: 1;
+}
+
+@media (max-width: 1400px) {
+  .desktop-canvas-scale {
+    zoom: 0.92;
+  }
+}
+
+@media (max-width: 1200px) {
+  .desktop-canvas-scale {
+    zoom: 0.82;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop-canvas-scale {
+    zoom: 0.72;
+  }
+}
+
+@media (max-width: 820px) {
+  .desktop-canvas-scale {
+    zoom: 0.62;
+  }
+}
+
+@media (max-width: 680px) {
+  .desktop-canvas-scale {
+    zoom: 0.54;
+  }
+}
+
+@supports not (zoom: 1) {
+  .desktop-canvas-scale {
+    transform-origin: top center;
+  }
+
+  @media (max-width: 1400px) {
+    .desktop-canvas-scale {
+      transform: scale(0.92);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .desktop-canvas-scale {
+      transform: scale(0.82);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .desktop-canvas-scale {
+      transform: scale(0.72);
+    }
+  }
+
+  @media (max-width: 820px) {
+    .desktop-canvas-scale {
+      transform: scale(0.62);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .desktop-canvas-scale {
+      transform: scale(0.54);
+    }
+  }
+}

@@ -103,7 +103,7 @@ function PartnerBenefitCard({
 
 export default function PartnerPage() {
   return (
-    <main className="inline-flex w-[1376px] flex-col items-center justify-start gap-[60px] px-[24px] py-[64px]">
+    <main className="desktop-canvas-scale mx-auto inline-flex w-[1376px] flex-col items-center justify-start gap-[60px] px-[24px] py-[64px]">
       <section className="relative -mx-[24px] flex h-[523px] w-[1376px] justify-center overflow-hidden">
         <div
           className="pointer-events-none absolute inset-0"
